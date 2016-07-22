@@ -1,0 +1,186 @@
+<?xml version="1.0"?>
+
+<!--
+   Licensed to the Apache Software Foundation (ASF) under one or more
+   contributor license agreements.  See the NOTICE file distributed with
+   this work for additional information regarding copyright ownership.
+   The ASF licenses this file to You under the Apache License, Version 2.0
+   (the "License"); you may not use this file except in compliance with
+   the License.  You may obtain a copy of the License at
+
+       http://www.apache.org/licenses/LICENSE-2.0
+
+   Unless required by applicable law or agreed to in writing, software
+   distributed under the License is distributed on an "AS IS" BASIS,
+   WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+   See the License for the specific language governing permissions and
+   limitations under the License.
+-->
+
+<project name="ZooKeeper">
+	<target name="package" description="Build distribution">
+		<property name="final.name" value="zookeeper-${project.version}" />
+		<property name="dist.dir" location="${project.build.directory}/${final.name}" />
+		<property name="dist.maven.dir" value="${dist.dir}/dist-maven" />
+		<delete dir="${dist.dir}" />
+		<mkdir dir="${dist.dir}" />
+		<mkdir dir="${dist.dir}/lib" />
+		<mkdir dir="${dist.dir}/contrib" />
+		<mkdir dir="${dist.dir}/recipes" />
+		<mkdir dir="${dist.dir}/bin" />
+		<mkdir dir="${dist.dir}/docs" />
+		<copy todir="${dist.dir}/lib" includeEmptyDirs="false">
+			<fileset dir="${project.build.directory}/lib">
+				<include name="*.jar" />
+			</fileset>
+			<fileset dir="${project.basedir}/src/java/lib">
+				<include name="*.LICENSE.txt" />
+			</fileset>
+		</copy>
+		<antcall target="package-common">
+			<param name="package.share" value="" />
+		</antcall>
+
+		<antcall target="copy.artifacts.to.maven.dir" />
+		<copy todir="${dist.dir}/bin">
+			<fileset dir="${project.basedir}/bin" />
+		</copy>
+	</target>
+
+	<target name="package-common" description="Assemble artifacts which are common between package and bin-package">
+		<copy todir="${dist.dir}${package.share}">
+			<fileset file="${project.build.directory}/${final.name}.jar" />
+		</copy>
+		<checksum file="${dist.dir}${package.share}/${final.name}.jar" algorithm="md5" />
+		<checksum file="${dist.dir}${package.share}/${final.name}.jar" algorithm="sha1" />
+		<copy todir="${dist.dir}/docs" failonerror="false">
+			<fileset dir="${project.basedir}/docs" />
+			<fileset dir="${docs.dir}" />
+		</copy>
+		<copy todir="${dist.dir}">
+			<fileset file="CHANGES.txt" />
+			<fileset file="README.txt" />
+			<fileset file="README_packaging.txt" />
+			<fileset file="build.xml" />
+			<fileset file="ivy.xml" />
+			<fileset file="ivysettings.xml" />
+			<fileset file="src/NOTICE.txt" />
+			<fileset file="src/LICENSE.txt" />
+		</copy>
+		<copy todir="${dist.dir}/src" includeEmptyDirs="true">
+			<fileset dir="${project.basedir}/src" excludes="   ">
+				<exclude name="**/*.template" />
+				<exclude name="**/docs/build/**/*" />
+				<exclude name="**/ivy*.jar" />
+				<exclude name="**/target/**/*" />
+				<exclude name="**/recipes-dist/**/*" />
+				<exclude name="**/contrib-dist/**/*" />
+				<exclude name="**/build/**/*" />
+			</fileset>
+		</copy>
+		<chmod perm="ugo+x" type="file" parallel="false">
+			<fileset dir="${dist.dir}/bin" />
+			<fileset dir="${dist.dir}/src/contrib/">
+				<include name="**/bin/*" />
+			</fileset>
+		</chmod>
+		<copy todir="${dist.dir}/conf">
+			<fileset dir="${project.basedir}/conf" excludes="**/*.template" />
+		</copy>
+		<!-- Copy recipes -->
+		<antcall target="copy.dir.if.exist">
+			<param name="dir" value="${project.build.directory}/recipes" />
+			<param name="todir" value="${dist.dir}${package.share}/recipes" />
+		</antcall>
+		<!-- Copy contrib -->
+		<antcall target="copy.dir.if.exist">
+			<param name="dir" value="${project.build.directory}/contrib" />
+			<param name="todir" value="${dist.dir}${package.share}/contrib" />
+		</antcall>
+	</target>
+	<target name="copy.artifacts.to.maven.dir">
+		<mkdir dir="${dist.maven.dir}" />
+		<antcall target="copy.file.to.maven.dir">
+			<param name="file" value="${project.build.directory}/${final.name}-bin.jar" />
+			<param name="tofile" value="${dist.maven.dir}/${final.name}.jar" />
+		</antcall>
+		<antcall target="copy.file.to.maven.dir">
+			<param name="file" value="${project.build.directory}/${final.name}-tests.jar" />
+			<param name="tofile" value="${dist.maven.dir}/${final.name}-tests.jar" />
+		</antcall>
+		<antcall target="copy.file.to.maven.dir">
+			<param name="file" value="${project.build.directory}/${final.name}-sources.jar" />
+			<param name="tofile" value="${dist.maven.dir}/${final.name}-sources.jar" />
+		</antcall>
+		<antcall target="copy.file.to.maven.dir">
+			<param name="file" value="${project.build.directory}/${final.name}-javadoc.jar" />
+			<param name="tofile" value="${dist.maven.dir}/${final.name}-javadoc.jar" />
+		</antcall>
+		<antcall target="copy.file.to.maven.dir">
+			<param name="file" value="${project.basedir}/pom.xml" />
+			<param name="tofile" value="${dist.maven.dir}/${final.name}.pom" />
+		</antcall>
+
+	</target>
+	<target name="copy.file.to.maven.dir">
+		<available file="${file}" property="exist">
+		</available>
+		<antcall target="copy.and.generate.checksum" />
+	</target>
+	<target name="copy.and.generate.checksum" if="exist">
+		<echo>in copy</echo>
+		<copy file="${file}" tofile="${tofile}" />
+		<checksum file="${tofile}" algorithm="md5" />
+		<checksum file="${tofile}" algorithm="sha1" />
+	</target>
+	<target name="copy.dir.if.exist">
+		<available file="${dir}" property="exist">
+		</available>
+		<antcall target="copy.dir" />
+	</target>
+	<target name="copy.dir" if="exist">
+		<copy todir="${todir}">
+			<fileset dir="${dir}" />
+		</copy>
+	</target>
+	<target name="bin-package" description="Build Binay distribution">
+		<property name="final.name" value="zookeeper-${project.version}" />
+		<property name="dist.dir" location="${project.build.directory}/${final.name}" />
+		<property name="dist.maven.dir" value="${dist.dir}/dist-maven" />
+		<delete dir="${dist.dir}" />
+		<mkdir dir="${dist.dir}" />
+		<mkdir dir="${dist.dir}/lib" />
+		<mkdir dir="${dist.dir}/libexec" />
+		<mkdir dir="${dist.dir}/share/zookeeper/contrib" />
+		<mkdir dir="${dist.dir}/share/zookeeper/recipes" />
+		<mkdir dir="${dist.dir}/bin" />
+		<mkdir dir="${dist.dir}/docs" />
+		<mkdir dir="${dist.dir}/share/zookeeper/templates/conf" />
+		<mkdir dir="${dist.dir}/sbin" />
+		<copy todir="${dist.dir}/share/zookeeper/" includeEmptyDirs="false">
+			<fileset dir="${project.build.directory}/lib">
+				<include name="*.jar" />
+			</fileset>
+			<fileset dir="${project.basedir}/src/java/lib">
+				<include name="*.LICENSE.txt" />
+			</fileset>
+		</copy>
+		<copy todir="${dist.dir}/bin">
+			<fileset dir="bin" includes="zkCli*" />
+		</copy>
+
+		<copy todir="${dist.dir}/libexec">
+			<fileset dir="bin" includes="zkEnv*" />
+		</copy>
+
+		<copy todir="${dist.dir}/sbin">
+			<fileset dir="bin" includes="zkServer*" />
+		</copy>
+		
+		<antcall target="package-common">
+			<param name="package.share" value="/share/zookeeper" />
+		</antcall>
+		<antcall target="copy.artifacts.to.maven.dir" />
+	</target>
+
+</project>
