@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+    Licensed under the Apache License, Version 2.0 (the "License");
+    you may not use this file except in compliance with the License.
+    You may obtain a copy of the License at
+
+    http://www.apache.org/licenses/LICENSE-2.0
+
+    Unless required by applicable law or agreed to in writing, software
+    distributed under the License is distributed on an "AS IS" BASIS,
+    WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+    See the License for the specific language governing permissions and
+    limitations under the License. See accompanying LICENSE file.
+-->
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+    <parent>
+        <groupId>org.apache.zookeeper</groupId>
+        <artifactId>zookeeper-recipes</artifactId>
+        <version>3.6.0-SNAPSHOT</version>
+        <relativePath>../</relativePath>
+    </parent>
+    <groupId>org.apache.zookeeper</groupId>
+    <artifactId>zookeeper-recipes-dist</artifactId>
+    <version>3.6.0-SNAPSHOT</version>
+    <packaging>pom</packaging>
+    <name>ZooKeeper recipes distribution</name>
+    <description>ZooKeeper recipes distribution</description>
+    <profiles>
+        <profile>
+            <id>dist</id>
+            <build>
+                <plugins>
+                    <plugin>
+                        <groupId>org.apache.maven.plugins</groupId>
+                        <artifactId>maven-antrun-plugin</artifactId>
+                        <inherited>false</inherited>
+                        <executions>
+                            <execution>
+                                <inherited>false</inherited>
+                                <configuration>
+                                    <target name="recipes-dist" description="Build recipes distribution">
+                                        <property name="dist.dir" location="${project.build.directory}/recipes"/>
+                                        <delete dir="${dist.dir}"/>
+                                        <mkdir dir="${dist.dir}"/>
+                                        <property name="election.dist.dir" location="${project.basedir}/../election/target/election"/>
+                                        <mkdir dir="${dist.dir}/election"/>
+                                        <copy todir="${dist.dir}/election">
+                                            <fileset dir="${election.dist.dir}"/>
+                                        </copy>
+                                        <property name="lock.dist.dir" location="${project.basedir}/../lock/target/lock"/>
+                                        <mkdir dir="${dist.dir}/lock"/>
+                                        <copy todir="${dist.dir}/lock">
+                                            <fileset dir="${lock.dist.dir}"/>
+                                        </copy>
+                                        <property name="queue.dist.dir" location="${project.basedir}/../queue/target/queue"/>
+                                        <mkdir dir="${dist.dir}/queue"/>
+                                        <copy todir="${dist.dir}/queue">
+                                            <fileset dir="${queue.dist.dir}"/>
+                                        </copy>
+                                    </target>
+                                </configuration>
+                                <id>prepare-recipes-dist</id>
+                                <phase>prepare-package</phase>
+                                <goals>
+                                    <goal>run</goal>
+                                </goals>
+                            </execution>
+                        </executions>
+                    </plugin>
+                </plugins>
+            </build>
+        </profile>
+    </profiles>
+</project>

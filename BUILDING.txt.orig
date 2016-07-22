@@ -1,0 +1,74 @@
+Build instructions for Zookeeper
+
+----------------------------------------------------------------------------------
+Requirements:
+* JDK 1.7+
+* Maven 3.3.3 or later
+* apache-forrest-0.8 to generte documents
+* gcc, autoconf, automake, libtool, doxygen (for building c-binding)
+* Internet connection for first build to fetch dependencies
+* Any OS which can install and run above tools
+----------------------------------------------------------------------------------
+Maven main modules:
+
+  zookeeper                            (Zookeeper module)
+  recipes                              (Parent POM for all recipe modules)
+		 - zookeeper-recipes-election  (election recipe)
+		 - zookeeper-recipes-lock      (lock recipe)
+		 - zookeeper-recipes-queue     (queue recipe)
+		 - zookeeper-recipes-dist      (assembles all the recipes)
+          
+  contribs                             (Parent POM for all contrib modules)
+          - zookeeper-loggraph         (loggraph)
+		  - zookeeper-rest             (zookeeper rest api)
+		  - zookeeper-zooinspector     (GUI for zookeeper operation )
+		  - zookeeper-contrib-dist     (assembles all the contib prjects, most contrib modules are assembled without bulding)
+          - many other contrib modules
+
+----------------------------------------------------------------------------------
+Maven build goals for zookeeper module:
+
+ * Clean                     : mvn clean
+ * Compile                   : mvn compile [-Pcompile-native]
+ * Run tests                 : mvn test [-Ptest-cppunit] 
+ * Create JAR                : mvn package -DskipTests
+ * Run findbugs              : mvn compile findbugs:findbugs      (artifact: target/findbugsXml.xml)
+ * Run checkstyle            : mvn validate checkstyle:checkstyle (artifact: target/checkstyle-result.xml)
+ * Install JAR in M2 cache   : mvn install -Psrc,javadoc
+ * Deploy JAR to Maven repo  : mvn deploy -Psrc,javadoc
+ * Run Rat                   : mvn validate rat:check
+ * Build javadocs            : mvn package -DskipTests -Pjavadoc (artifacts: target/docs/api and target/zookeeper-{version}-javadoc.jar )
+ * Build distribution        : mvn clean package -DskipTests -Pdist (artfact: assemled workign zookeeper at target/zookeeper-{version}-SNAPSHOT)
+ * Build Full distribution   : mvn clean package -DskipTests -Psrc,javadoc,api-report,docs,recipes,contribs,dist,tar -Dforrest.home=D:/non-installed/apache-forrest-0.8
+ * Build binary distribution : mvn clean package -DskipTests -Psrc,javadoc,api-report,docs,recipes,contribs,bin-dist,tar -Dforrest.home=D:/non-installed/apache-forrest-0.8
+ * Make C binding tarball    : mvn clean package -DskipTests -Pcompile-native,package-native
+ 
+
+ Build options:
+
+  * Use -Psrc to create java source file jar
+  * Use -Pjavadoc to generate zookeeper exposed api javadoc
+  * Use -Papi-report to create api change report with repect to previous stable version
+  * Use -Pdocs to generate & bundle the documentation in the distribution (using -Pdist)
+  * Use -Precipes to build and include zookeeper recipes in the distribution (using -Pdist)
+  * Use -Pcontribs to build and include zookeeper contribs in the distribution (using -Pdist)
+  * Use -Dtar to create a TAR with the distribution (using -Pdist)
+  * Use -Pcompile-native to compile C binding code
+  * Use -Ppackage-native to create a zookeeper client C binding TAR
+  * Use -Ptest-cppunit to run c binding cppunit test cases.
+  * Specify -Dforrest.home only when building documentation
+  
+Maven build goals for contrib modules:
+ * Build contrib distribution        : mvn clean package -Pdist (run it from src/contrib)
+ 
+Maven build goals for recipe modules:
+ * Build contrib distribution        : mvn clean package -Pdist (run it from src/recipes)
+  
+----------------------------------------------------------------------------------
+Importing projects to eclipse
+
+To import the project to eclipse run
+  $ cd zookeeper
+  $ mvn install -DskipTests
+Then, generate eclipse project files.
+  $ mvn eclipse:eclipse -DskipTests  

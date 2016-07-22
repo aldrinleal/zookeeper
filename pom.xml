@@ -1,0 +1,1493 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+    Licensed under the Apache License, Version 2.0 (the "License");
+    you may not use this file except in compliance with the License.
+    You may obtain a copy of the License at
+
+    http://www.apache.org/licenses/LICENSE-2.0
+
+    Unless required by applicable law or agreed to in writing, software
+    distributed under the License is distributed on an "AS IS" BASIS,
+    WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+    See the License for the specific language governing permissions and
+    limitations under the License. See accompanying LICENSE file.
+-->
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+    <groupId>org.apache.zookeeper</groupId>
+    <artifactId>zookeeper</artifactId>
+    <version>3.6.0-SNAPSHOT</version>
+    <packaging>jar</packaging>
+    <name>ZooKeeper</name>
+    <description>Distributed coordination.</description>
+    <url>http://zookeeper.apache.org</url>
+    <inceptionYear>2008</inceptionYear>
+    <organization>
+        <name>The Apache Software Foundation</name>
+        <url>http://www.apache.org/</url>
+    </organization>
+    <licenses>
+        <license>
+            <name>The Apache Software License, Version 2.0</name>
+            <url>http://www.apache.org/licenses/LICENSE-2.0.txt</url>
+            <distribution>repo</distribution>
+        </license>
+    </licenses>
+    <developers>
+        <developer>
+            <id>phunt</id>
+            <name>Patrick Hunt</name>
+            <roles>
+                <role>committer</role>
+                <role>pmc</role>
+            </roles>
+        </developer>
+        <developer>
+            <id>fpj</id>
+            <name>Flavio Junqueira</name>
+            <roles>
+                <role>committer</role>
+                <role>pmc</role>
+            </roles>
+        </developer>
+        <developer>
+            <id>mahadev</id>
+            <name>Mahadev Konar</name>
+            <roles>
+                <role>committer</role>
+                <role>pmc</role>
+            </roles>
+        </developer>
+        <developer>
+            <id>gkesavan</id>
+            <name>Giridharan Kesavan</name>
+            <roles>
+                <role>committer</role>
+            </roles>
+        </developer>
+        <developer>
+            <id>akornev</id>
+            <name>Andrew Kornev</name>
+            <roles>
+                <role>committer</role>
+            </roles>
+        </developer>
+        <developer>
+            <id>breed</id>
+            <name>Benjamin Reed</name>
+            <roles>
+                <role>committer</role>
+                <role>pmc</role>
+            </roles>
+        </developer>
+        <developer>
+            <id>henry</id>
+            <name>Henry Robinson</name>
+            <roles>
+                <role>committer</role>
+                <role>pmc</role>
+            </roles>
+        </developer>
+        <developer>
+            <id>ivank</id>
+            <name>Ivan Kelly</name>
+            <roles>
+                <role>pmc</role>
+            </roles>
+        </developer>
+        <developer>
+            <id>camille</id>
+            <name>Camille Fournier</name>
+            <roles>
+                <role>committer</role>
+                <role>pmc</role>
+            </roles>
+        </developer>
+        <developer>
+            <id>michim</id>
+            <name>Michi Mutsuzaki</name>
+            <roles>
+                <role>pmc</role>
+                <role>committer</role>
+            </roles>
+        </developer>
+        <developer>
+            <id>tdunning</id>
+            <name>Ted Dunning</name>
+            <roles>
+                <role>pmc</role>
+            </roles>
+        </developer>
+        <developer>
+            <id>shralex</id>
+            <name>Alex Shraer</name>
+            <roles>
+                <role>committer</role>
+            </roles>
+        </developer>
+        <developer>
+            <id>thawan</id>
+            <name>Thawan Kooburat</name>
+            <roles>
+                <role>committer</role>
+            </roles>
+        </developer>
+        <developer>
+            <id>rakeshr</id>
+            <name>Rakesh R</name>
+            <roles>
+                <role>committer</role>
+            </roles>
+        </developer>
+        <developer>
+            <id>hdeng</id>
+            <name>Hongchao Deng</name>
+            <roles>
+                <role>committer</role>
+            </roles>
+        </developer>
+        <developer>
+            <id>rgs</id>
+            <name>Raul Gutierrez Segales</name>
+            <roles>
+                <role>committer</role>
+            </roles>
+        </developer>
+        <developer>
+            <id>cnauroth</id>
+            <name>Chris Nauroth</name>
+            <roles>
+                <role>committer</role>
+            </roles>
+        </developer>
+    </developers>
+    <mailingLists>
+        <mailingList>
+            <name>Users</name>
+            <post>user@zookeeper.apache.org</post>
+            <subscribe>user-subscribe@zookeeper.apache.org</subscribe>
+            <unsubscribe>user-unsubscribe@zookeeper.apache.org</unsubscribe>
+            <archive>http://mail-archives.apache.org/mod_mbox/zookeeper-user/</archive>
+            <otherArchives>
+                <otherArchive>http://zookeeper-user.917769.n3.nabble.com/</otherArchive>
+                <otherArchive>
+                    http://zookeeper.markmail.org/search/?q=#query:%20list%3Aorg.apache.hadoop.zookeeper-user+page:1+state:facets
+                </otherArchive>
+            </otherArchives>
+        </mailingList>
+        <mailingList>
+            <name>Development</name>
+            <post>dev@zookeeper.apache.org</post>
+            <subscribe>dev-subscribe@zookeeper.apache.org</subscribe>
+            <unsubscribe>dev-unsubscribe@zookeeper.apache.org</unsubscribe>
+            <archive>http://mail-archives.apache.org/mod_mbox/zookeeper-dev/</archive>
+            <otherArchives>
+                <otherArchive>http://zookeeper-dev.917766.n3.nabble.com/</otherArchive>
+                <otherArchive>
+                    http://zookeeper.markmail.org/search/?q=#query:%20list%3Aorg.apache.hadoop.zookeeper-dev+page:1+state:facets
+                </otherArchive>
+            </otherArchives>
+        </mailingList>
+        <mailingList>
+            <name>Commits</name>
+            <post>commits@zookeeper.apache.org</post>
+            <subscribe>commits-subscribe@zookeeper.apache.org</subscribe>
+            <unsubscribe>commits-unsubscribe@zookeeper.apache.org</unsubscribe>
+            <archive>http://mail-archives.apache.org/mod_mbox/zookeeper-commits/</archive>
+        </mailingList>
+    </mailingLists>
+    <scm>
+        <connection>scm:svn:http://svn.apache.org/repos/asf/zookeeper/trunk/</connection>
+        <developerConnection>scm:svn:https://svn.apache.org/repos/asf/zookeeper/trunk/
+        </developerConnection>
+        <url>http://svn.apache.org/viewvc/zookeeper/trunk/</url>
+    </scm>
+    <issueManagement>
+        <system>JIRA</system>
+        <url>http://issues.apache.org/jira/browse/ZOOKEEPER</url>
+    </issueManagement>
+    <properties>
+        <distMgmtSnapshotsId>apache.snapshots</distMgmtSnapshotsId>
+        <distMgmtSnapshotsName>Apache Development Snapshot Repository</distMgmtSnapshotsName>
+        <distMgmtSnapshotsUrl>https://repository.apache.org/content/repositories/snapshots
+        </distMgmtSnapshotsUrl>
+        <distMgmtDeployRepoId>maven.central.repo</distMgmtDeployRepoId>
+        <distMgmtDeployRepoName>Maven Central Repository</distMgmtDeployRepoName>
+        <distMgmtDeployRepoUrl>https://repo1.maven.org/maven2</distMgmtDeployRepoUrl>
+        <organization.logo>http://www.apache.org/images/asf_logo_wide.gif</organization.logo>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <project.build.resourceEncoding>UTF-8</project.build.resourceEncoding>
+        <docSourceDirectory>${project.basedir}/src/docs</docSourceDirectory>
+        <docs.dir>${project.build.directory}/docs</docs.dir>
+        <jdiff.dir>${project.build.directory}/jdiff</jdiff.dir>
+        <jdiff.stable>3.1.1</jdiff.stable>
+        <jdiff.stable.javadoc>http://hadoop.apache.org/zookeeper/docs/r${jdiff.stable}/api/
+        </jdiff.stable.javadoc>
+        <generated.sourceDirectory>${project.build.directory}/generated-sources
+        </generated.sourceDirectory>
+        <!-- Tools executables -->
+        <maven.executable>mvn</maven.executable>
+        <forrest.executable>forrest</forrest.executable>
+        <!-- cppunit property set -->
+        <cppunit.lib>/usr/lib</cppunit.lib>
+        <cppunit.m4>/usr/share/aclocal</cppunit.m4>
+        <!-- Plug-in versions -->
+        <javacc-maven-plugin-version>2.6</javacc-maven-plugin-version>
+        <maven-antrun-plugin-version>1.8</maven-antrun-plugin-version>
+        <build-helper-maven-plugin-version>1.10</build-helper-maven-plugin-version>
+        <maven-compiler-plugin-version>3.5.1</maven-compiler-plugin-version>
+        <maven-jar-plugin-version>3.0.0</maven-jar-plugin-version>
+        <maven-enforcer-plugin-version>1.0</maven-enforcer-plugin-version>
+        <maven-surefire-plugin-version>2.8.1</maven-surefire-plugin-version>
+        <maven-checkstyle-plugin-version>2.17</maven-checkstyle-plugin-version>
+        <maven-source-plugin-version>3.0.0</maven-source-plugin-version>
+        <maven-javadoc-plugin-version>2.10.4</maven-javadoc-plugin-version>
+        <findbugs-maven-plugin-version>3.0.0</findbugs-maven-plugin-version>
+        <apache-rat-plugin-version>0.11</apache-rat-plugin-version>
+        <maven-dependency-plugin-version>2.10</maven-dependency-plugin-version>
+        <maven-install-plugin-version>2.5.2</maven-install-plugin-version>
+        <exec-maven-plugin-version>1.5.0</exec-maven-plugin-version>
+        <hadoop-maven-plugins-version>2.7.0</hadoop-maven-plugins-version>
+        <!-- Dependency versions -->
+        <jdiff-version>1.0.9</jdiff-version>
+        <xercesImpl-version>2.11.0</xercesImpl-version>
+        <log4j-version>1.2.17</log4j-version>
+        <slf4j-api-version>1.7.5</slf4j-api-version>
+        <slf4j-log4j12-version>1.7.5</slf4j-log4j12-version>
+        <jline-version>2.11</jline-version>
+        <netty-version>3.10.5.Final</netty-version>
+        <commons-cli-version>1.2</commons-cli-version>
+        <jackson-mapper-asl-version>1.9.11</jackson-mapper-asl-version>
+        <jetty-version>6.1.26</jetty-version>
+        <junit-version>4.12</junit-version>
+        <mockito-all-version>1.8.5</mockito-all-version>
+        <commons-collections-version>3.2.2</commons-collections-version>
+        <!-- OSGI Properties -->
+        <osgi-import-package>
+            javax.management;resolution:=optional,javax.security.auth.callback,javax.security.auth.login,javax.security.sasl,org.slf4j;version="[1.6,2)",org.jboss.netty.buffer;resolution:=optional;version="[3.2,4)",org.jboss.netty.channel;resolution:=optional;version="[3.2,4)",org.jboss.netty.channel.group;resolution:=optional;version="[3.2,4)",org.jboss.netty.channel.socket.nio;resolution:=optional;version="[3.2,4)",org.osgi.framework;resolution:=optional;version="[1.5,2)",org.osgi.util.tracker;resolution:=optional;version="[1.4,2)",org.ietf.jgss
+        </osgi-import-package>
+        <osgi-export-package>
+            org.apache.zookeeper;version="${project.version}",org.apache.zookeeper.client;version="${project.version}",org.apache.zookeeper.data;version="${project.version}",org.apache.zookeeper.version;version="${project.version}",org.apache.zookeeper.server;version="${project.version}",org.apache.zookeeper.server.auth;version="${project.version}",org.apache.zookeeper.server.persistence;version="${project.version}",org.apache.zookeeper.server.quorum;version="${project.version}",org.apache.zookeeper.common;version="${project.version}"
+        </osgi-export-package>
+    </properties>
+    <dependencies>
+        <dependency>
+            <groupId>log4j</groupId>
+            <artifactId>log4j</artifactId>
+            <version>${log4j-version}</version>
+        </dependency>
+        <dependency>
+            <groupId>org.slf4j</groupId>
+            <artifactId>slf4j-api</artifactId>
+            <version>${slf4j-api-version}</version>
+        </dependency>
+        <dependency>
+            <groupId>org.slf4j</groupId>
+            <artifactId>slf4j-log4j12</artifactId>
+            <version>${slf4j-log4j12-version}</version>
+        </dependency>
+        <dependency>
+            <groupId>jline</groupId>
+            <artifactId>jline</artifactId>
+            <version>${jline-version}</version>
+        </dependency>
+        <dependency>
+            <groupId>io.netty</groupId>
+            <artifactId>netty</artifactId>
+            <version>${netty-version}</version>
+        </dependency>
+        <dependency>
+            <groupId>commons-cli</groupId>
+            <artifactId>commons-cli</artifactId>
+            <version>${commons-cli-version}</version>
+        </dependency>
+        <dependency>
+            <groupId>org.codehaus.jackson</groupId>
+            <artifactId>jackson-mapper-asl</artifactId>
+            <version>${jackson-mapper-asl-version}</version>
+        </dependency>
+        <dependency>
+            <groupId>org.mortbay.jetty</groupId>
+            <artifactId>jetty</artifactId>
+            <version>${jetty-version}</version>
+        </dependency>
+        <dependency>
+            <groupId>org.mortbay.jetty</groupId>
+            <artifactId>jetty-util</artifactId>
+            <version>${jetty-version}</version>
+        </dependency>
+        <dependency>
+            <groupId>junit</groupId>
+            <artifactId>junit</artifactId>
+            <version>${junit-version}</version>
+            <scope>test</scope>
+        </dependency>
+        <dependency>
+            <groupId>org.mockito</groupId>
+            <artifactId>mockito-all</artifactId>
+            <version>${mockito-all-version}</version>
+            <scope>test</scope>
+        </dependency>
+        <dependency>
+            <groupId>commons-collections</groupId>
+            <artifactId>commons-collections</artifactId>
+            <version>${commons-collections-version}</version>
+            <scope>test</scope>
+        </dependency>
+        <dependency>
+            <groupId>javax.servlet</groupId>
+            <artifactId>servlet-api</artifactId>
+            <version>2.5</version>
+            <scope>provided</scope>
+        </dependency>
+    </dependencies>
+    <repositories>
+        <repository>
+            <id>${distMgmtSnapshotsId}</id>
+            <name>${distMgmtSnapshotsName}</name>
+            <url>${distMgmtSnapshotsUrl}</url>
+            <releases>
+                <enabled>false</enabled>
+            </releases>
+        </repository>
+    </repositories>
+    <distributionManagement>
+        <repository>
+            <id>${distMgmtDeployRepoId}</id>
+            <name>${distMgmtDeployRepoName}</name>
+            <url>${distMgmtDeployRepoUrl}</url>
+        </repository>
+    </distributionManagement>
+    <build>
+        <sourceDirectory>src/java/main</sourceDirectory>
+        <testSourceDirectory>src/java/test</testSourceDirectory>
+        <resources>
+            <resource>
+                <directory>${project.build.sourceDirectory}</directory>
+                <includes>
+                    <include>**/*</include>
+                </includes>
+            </resource>
+            <resource>
+                <directory>${generated.sourceDirectory}</directory>
+                <includes>
+                    <include>**/*</include>
+                </includes>
+            </resource>
+            <resource>
+                <directory>${project.basedir}</directory>
+                <includes>
+                    <include>LICENSE.txt</include>
+                </includes>
+            </resource>
+        </resources>
+        <testResources>
+            <testResource>
+                <directory>${project.basedir}</directory>
+                <includes>
+                    <include>LICENSE.txt</include>
+                </includes>
+            </testResource>
+            <testResource>
+                <directory>${project.build.testSourceDirectory}/</directory>
+                <includes>
+                    <include>data/**/*</include>
+                </includes>
+            </testResource>
+        </testResources>
+        <plugins>
+            <plugin>
+                <groupId>org.codehaus.mojo</groupId>
+                <artifactId>javacc-maven-plugin</artifactId>
+                <version>${javacc-maven-plugin-version}</version>
+                <executions>
+                    <execution>
+                        <id>javacc</id>
+                        <phase>generate-sources</phase>
+                        <goals>
+                            <goal>javacc</goal>
+                        </goals>
+                        <configuration>
+                            <sourceDirectory>
+                                ${project.build.sourceDirectory}/org/apache/jute/compiler/generated/
+                            </sourceDirectory>
+                            <outputDirectory>${generated.sourceDirectory}</outputDirectory>
+                        </configuration>
+                    </execution>
+                </executions>
+            </plugin>
+            <plugin>
+                <groupId>org.apache.hadoop</groupId>
+                <artifactId>hadoop-maven-plugins</artifactId>
+                <version>${hadoop-maven-plugins-version}</version>
+                <executions>
+                    <execution>
+                        <id>version-info</id>
+                        <phase>initialize</phase>
+                        <goals>
+                            <goal>version-info</goal>
+                        </goals>
+                        <configuration>
+                            <source>
+                                <directory>${project.build.sourceDirectory}</directory>
+                            </source>
+                        </configuration>
+                    </execution>
+                </executions>
+            </plugin>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-antrun-plugin</artifactId>
+                <version>${maven-antrun-plugin-version}</version>
+                <executions>
+                    <execution>
+                        <id>gensources</id>
+                        <phase>generate-sources</phase>
+                        <configuration>
+                            <target>
+                                <mkdir dir="${project.build.directory}/jute"/>
+                                <mkdir dir="${project.build.directory}/jute/classes"/>
+                                <javac destdir="${project.build.directory}/jute/classes"
+                                       includes="org/apache/jute/**"
+                                       debug="on" fork="true" includeantruntime="false">
+                                    <src path="${generated.sourceDirectory}"/>
+                                    <src path="${project.build.sourceDirectory}"/>
+                                </javac>
+                                <java classname="org.apache.jute.compiler.generated.Rcc" fork="true"
+                                      dir="${generated.sourceDirectory}">
+                                    <arg value="-l"/>
+                                    <arg value="java"/>
+                                    <arg value="${project.basedir}/src/zookeeper.jute"/>
+                                    <classpath>
+                                        <pathelement
+                                                path="${project.build.directory}/jute/classes"/>
+                                    </classpath>
+                                </java>
+                                <mkdir dir="${project.build.directory}/ver-gen"/>
+                                <mkdir dir="${project.build.directory}/ver-gen/classes"/>
+                                <javac srcdir="${project.build.sourceDirectory}"
+                                       destdir="${project.build.directory}/ver-gen/classes"
+                                       includes="org/apache/zookeeper/version/util/**" debug="on"
+                                       fork="true"
+                                       includeantruntime="false"/>
+                                <tstamp>
+                                    <format property="build.time" pattern="MM/dd/yyyy HH:mm zz"
+                                            timezone="GMT"/>
+                                </tstamp>
+                                <java classname="org.apache.zookeeper.version.util.VerGen"
+                                      fork="true"
+                                      dir="${project.build.directory}/generated-sources">
+                                    <arg value="${project.version}"/>
+                                    <arg value="${version-info.scm.commit}"/>
+                                    <arg value="${build.time}"/>
+                                    <classpath>
+                                        <pathelement
+                                                path="${project.build.directory}/ver-gen/classes"/>
+                                    </classpath>
+                                </java>
+                            </target>
+                        </configuration>
+                        <goals>
+                            <goal>run</goal>
+                        </goals>
+                    </execution>
+                </executions>
+            </plugin>
+            <plugin>
+                <groupId>org.codehaus.mojo</groupId>
+                <artifactId>build-helper-maven-plugin</artifactId>
+                <version>${build-helper-maven-plugin-version}</version>
+                <executions>
+                    <execution>
+                        <id>add-source</id>
+                        <phase>generate-sources</phase>
+                        <goals>
+                            <goal>add-source</goal>
+                        </goals>
+                        <configuration>
+                            <sources>
+                                <source>${project.build.directory}/generated-sources</source>
+                            </sources>
+                        </configuration>
+                    </execution>
+                    <execution>
+                        <id>add-test-source</id>
+                        <phase>generate-sources</phase>
+                        <goals>
+                            <goal>add-test-source</goal>
+                        </goals>
+                        <configuration>
+                            <sources>
+                                <source>${project.basedir}/src/java/systest</source>
+                            </sources>
+                        </configuration>
+                    </execution>
+                    <execution>
+                        <id>year-property</id>
+                        <goals>
+                            <goal>timestamp-property</goal>
+                        </goals>
+                        <configuration>
+                            <name>current.year</name>
+                            <pattern>yyyy</pattern>
+                            <timeZone>GMT</timeZone>
+                            <locale>en_US</locale>
+                        </configuration>
+                    </execution>
+                </executions>
+            </plugin>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-compiler-plugin</artifactId>
+                <version>${maven-compiler-plugin-version}</version>
+                <configuration>
+                    <source>1.7</source>
+                    <target>1.7</target>
+                </configuration>
+            </plugin>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-jar-plugin</artifactId>
+                <version>${maven-jar-plugin-version}</version>
+                <configuration>
+                    <archive>
+                        <manifest>
+                            <mainClass>org.apache.zookeeper.server.quorum.QuorumPeer</mainClass>
+                            <addDefaultSpecificationEntries>true</addDefaultSpecificationEntries>
+                            <addDefaultImplementationEntries>true</addDefaultImplementationEntries>
+                        </manifest>
+                        <manifestEntries>
+                            <Bundle-Vendor>The Apache Software Foundation</Bundle-Vendor>
+                            <Bundle-Name>ZooKeeper Bundle</Bundle-Name>
+                            <Bundle-SymbolicName>org.apache.hadoop.zookeeper</Bundle-SymbolicName>
+                            <Bundle-Version>${project.version}</Bundle-Version>
+                            <Bundle-License>http://www.apache.org/licenses/LICENSE-2.0.txt
+                            </Bundle-License>
+                            <Bundle-DocURL>http://hadoop.apache.org/zookeeper</Bundle-DocURL>
+                            <Import-Package>${osgi-import-package}</Import-Package>
+                            <Export-Package>${osgi-export-package}</Export-Package>
+                            <Built-At>${maven.build.timestamp}</Built-At>
+                        </manifestEntries>
+                    </archive>
+                </configuration>
+                <executions>
+                    <execution>
+                        <id>make-bin-jar</id>
+                        <phase>prepare-package</phase>
+                        <goals>
+                            <goal>jar</goal>
+                        </goals>
+                        <configuration>
+                            <classifier>bin</classifier>
+                            <excludes>
+                                <exclude>**/*.java</exclude>
+                            </excludes>
+                        </configuration>
+                    </execution>
+                    <execution>
+                        <id>make-test-jar</id>
+                        <phase>prepare-package</phase>
+                        <goals>
+                            <goal>test-jar</goal>
+                        </goals>
+                        <configuration>
+                            <excludes>
+                                <exclude>**/data/**/*</exclude>
+                                <exclude>data</exclude>
+                            </excludes>
+                            <archive>
+                                <manifest>
+                                    <addDefaultSpecificationEntries>true
+                                    </addDefaultSpecificationEntries>
+                                    <addDefaultImplementationEntries>true
+                                    </addDefaultImplementationEntries>
+                                </manifest>
+                            </archive>
+                        </configuration>
+                    </execution>
+                </executions>
+            </plugin>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-enforcer-plugin</artifactId>
+                <version>${maven-enforcer-plugin-version}</version>
+                <configuration>
+                    <rules>
+                        <requireMavenVersion>
+                            <version>[3.3.0,)</version>
+                        </requireMavenVersion>
+                    </rules>
+                </configuration>
+                <executions>
+                    <execution>
+                        <id>enforce-maven</id>
+                        <goals>
+                            <goal>enforce</goal>
+                        </goals>
+                    </execution>
+                </executions>
+            </plugin>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-surefire-plugin</artifactId>
+                <version>${maven-surefire-plugin-version}</version>
+                <configuration>
+                    <workingDirectory>${project.build.directory}/test-workdir</workingDirectory>
+                    <forkMode>always</forkMode>
+                    <forkedProcessTimeoutInSeconds>10800</forkedProcessTimeoutInSeconds>
+                    <redirectTestOutputToFile>true</redirectTestOutputToFile>
+                    <argLine>-Xmx512m</argLine>
+                    <enableAssertions>false</enableAssertions>
+                    <includes>
+                        <!-- ZooKeeper naming convention for JUnit tests -->
+                        <include>**/*Test.java</include>
+                    </includes>
+                    <systemPropertyVariables>
+                        <log4j.configuration>file:${project.basedir}/conf/log4j.properties
+                        </log4j.configuration>
+                        <build.test.dir>${project.build.directory}/test-workdir</build.test.dir>
+                        <test.data.dir>${project.build.testOutputDirectory}/data</test.data.dir>
+                        <zookeeper.DigestAuthenticationProvider.superDigest>
+                            super:D/InIHSb7yEEbrWz8b9l71RjZJU=
+                        </zookeeper.DigestAuthenticationProvider.superDigest>
+                    </systemPropertyVariables>
+                </configuration>
+            </plugin>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-checkstyle-plugin</artifactId>
+                <version>${maven-checkstyle-plugin-version}</version>
+                <configuration>
+                    <configLocation>${project.basedir}/dev-support/checkstyle/checkstyle.xml
+                    </configLocation>
+                    <consoleOutput>true</consoleOutput>
+                    <linkXRef>false</linkXRef>
+                    <verbose>false</verbose>
+                    <failOnViolation>false</failOnViolation>
+                    <includeTestSourceDirectory>false</includeTestSourceDirectory>
+                    <sourceDirectory>${project.basedir}/src/java/main</sourceDirectory>
+                    <inputEncoding>${project.build.sourceEncoding}</inputEncoding>
+                    <outputEncoding>${project.build.sourceEncoding}</outputEncoding>
+                </configuration>
+            </plugin>
+            <plugin>
+                <groupId>org.codehaus.mojo</groupId>
+                <artifactId>findbugs-maven-plugin</artifactId>
+                <version>${findbugs-maven-plugin-version}</version>
+                <configuration>
+                    <excludeFilterFile>
+                        ${project.basedir}/dev-support/findbug/findbugsExcludeFile.xml
+                    </excludeFilterFile>
+                    <xmlOutput>true</xmlOutput>
+                    <effort>Max</effort>
+                </configuration>
+            </plugin>
+            <plugin>
+                <groupId>org.apache.rat</groupId>
+                <artifactId>apache-rat-plugin</artifactId>
+                <version>${apache-rat-plugin-version}</version>
+                <executions>
+                    <execution>
+                        <phase>validate</phase>
+                        <configuration>
+                            <basedir>${project.build.directory}/zookeeper-${project.version}
+                            </basedir>
+                            <outputDirectory>${project.build.directory}/rat</outputDirectory>
+                            <excludes>
+                                <exclude>**/*.cer</exclude>
+                                <exclude>**/*.m4</exclude>
+                                <exclude>**/*.md5</exclude>
+                                <exclude>**/*.pom</exclude>
+                                <exclude>**/*.sha1</exclude>
+                                <exclude>**/.gitignore</exclude>
+                                <exclude>**/Makefile**</exclude>
+                                <exclude>**/winconfig.h</exclude>
+                                <exclude>**/configure**</exclude>
+                                <exclude>**/*Doxyfile</exclude>
+                                <exclude>**/*.am</exclude>
+                                <exclude>**/compile</exclude>
+                                <exclude>**/depcomp</exclude>
+                                <exclude>**/install-sh</exclude>
+                                <exclude>**/log4j.properties</exclude>
+                                <exclude>**/ltmain.sh</exclude>
+                                <exclude>**/missing</exclude>
+                                <exclude>**/wrappers*.opt</exclude>
+                                <exclude>CHANGES.txt</exclude>
+                                <exclude>**/README.md</exclude>
+                                <exclude>README_packaging.txt</exclude>
+                                <exclude>**/TODO</exclude>
+                                <exclude>**/VERSION</exclude>
+                                <exclude>**/ChangeLog</exclude>
+                                <exclude>**/OldChangeLog</exclude>
+                                <exclude>**/Changes</exclude>
+                                <exclude>**/contrib/zkperl/MANIFEST</exclude>
+                                <exclude>**/conf/*</exclude>
+                                <exclude>**/docs/</exclude>
+                                <exclude>**/lib/jdiff/</exclude>
+                                <exclude>
+                                    contrib/ZooInspector/src/java/com/nitido/utils/toaster/Toaster.java
+                                </exclude>
+                                <exclude>src/c/*.la</exclude>
+                                <exclude>src/c/*.lo</exclude>
+                                <exclude>src/c/.libs/</exclude>
+                                <exclude>src/c/autom4te.cache/**</exclude>
+                                <exclude>src/c/config**</exclude>
+                                <exclude>src/c/include/winstdint.h</exclude>
+                                <exclude>src/c/src/hashtable/</exclude>
+                                <exclude>src/c/test-driver</exclude>
+                                <exclude>src/c/tests/quorum.cfg</exclude>
+                                <exclude>
+                                    src/contrib/loggraph/web/org/apache/zookeeper/graph/resources/date.format.js
+                                </exclude>
+                                <exclude>
+                                    src/contrib/loggraph/web/org/apache/zookeeper/graph/resources/g.bar.js
+                                </exclude>
+                                <exclude>
+                                    src/contrib/loggraph/web/org/apache/zookeeper/graph/resources/g.dot.js
+                                </exclude>
+                                <exclude>
+                                    src/contrib/loggraph/web/org/apache/zookeeper/graph/resources/g.line.js
+                                </exclude>
+                                <exclude>
+                                    src/contrib/loggraph/web/org/apache/zookeeper/graph/resources/g.pie.js
+                                </exclude>
+                                <exclude>
+                                    src/contrib/loggraph/web/org/apache/zookeeper/graph/resources/g.raphael.js
+                                </exclude>
+                                <exclude>
+                                    src/contrib/loggraph/web/org/apache/zookeeper/graph/resources/raphael.js
+                                </exclude>
+                                <exclude>
+                                    src/contrib/loggraph/web/org/apache/zookeeper/graph/resources/yui-min.js
+                                </exclude>
+                                <exclude>src/contrib/monitoring/JMX-RESOURCES</exclude>
+                                <exclude>
+                                    src/contrib/zooinspector/src/java/com/nitido/utils/toaster/Toaster.java
+                                </exclude>
+                                <exclude>src/java/generated/.generated/</exclude>
+                                <exclude>src/java/test/checkstyle*.xml</exclude>
+                                <exclude>src/java/test/checkstyle*.xsl</exclude>
+                                <exclude>src/java/test/config/findbugs*.xml</exclude>
+                                <exclude>src/**/*.vcproj</exclude>
+                                <exclude>src/**/*.vcxproj*</exclude>
+                                <exclude>src/**/*.sln</exclude>
+                            </excludes>
+                        </configuration>
+                    </execution>
+                </executions>
+            </plugin>
+        </plugins>
+    </build>
+    <profiles>
+        <profile>
+            <id>recipes</id>
+            <build>
+                <plugins>
+                    <plugin>
+                        <groupId>org.apache.maven.plugins</groupId>
+                        <artifactId>maven-install-plugin</artifactId>
+                        <version>${maven-install-plugin-version}</version>
+                        <executions>
+                            <execution>
+                                <configuration>
+                                    <groupId>${project.groupId}</groupId>
+                                    <artifactId>${project.artifactId}</artifactId>
+                                    <version>${project.version}</version>
+                                    <packaging>jar</packaging>
+                                    <createChecksum>SHA-1</createChecksum>
+                                    <file>
+                                        ${project.build.directory}/${project.artifactId}-${project.version}-bin.jar
+                                    </file>
+                                    <pomFile>${project.basedir}/pom.xml</pomFile>
+                                </configuration>
+                                <phase>package</phase>
+                                <id>install-bin-jar</id>
+                                <goals>
+                                    <goal>install-file</goal>
+                                </goals>
+                            </execution>
+                            <execution>
+                                <configuration>
+                                    <groupId>${project.groupId}</groupId>
+                                    <artifactId>${project.artifactId}</artifactId>
+                                    <version>${project.version}</version>
+                                    <packaging>jar</packaging>
+                                    <createChecksum>SHA-1</createChecksum>
+                                    <file>
+                                        ${project.build.directory}/${project.artifactId}-${project.version}-tests.jar
+                                    </file>
+                                    <classifier>tests</classifier>
+                                </configuration>
+                                <id>install-test-jar</id>
+                                <phase>package</phase>
+                                <goals>
+                                    <goal>install-file</goal>
+                                </goals>
+                            </execution>
+                        </executions>
+                    </plugin>
+                    <plugin>
+                        <groupId>org.codehaus.mojo</groupId>
+                        <artifactId>exec-maven-plugin</artifactId>
+                        <version>${exec-maven-plugin-version}</version>
+                        <executions>
+                            <execution>
+                                <id>build-recipes</id>
+                                <phase>package</phase>
+                                <goals>
+                                    <goal>exec</goal>
+                                </goals>
+                                <configuration>
+                                    <executable>${maven.executable}</executable>
+                                    <workingDirectory>${project.basedir}/src/recipes
+                                    </workingDirectory>
+                                    <arguments>
+                                        <argument>clean</argument>
+                                        <argument>package</argument>
+                                        <argument>-DskipTests</argument>
+                                        <argument>-Pdist</argument>
+                                    </arguments>
+                                </configuration>
+                            </execution>
+                        </executions>
+                    </plugin>
+                    <plugin>
+                        <groupId>org.apache.maven.plugins</groupId>
+                        <artifactId>maven-antrun-plugin</artifactId>
+                        <version>${maven-antrun-plugin-version}</version>
+                        <executions>
+                            <execution>
+                                <configuration>
+                                    <target name="copy-recipes" description="Copy recipes">
+                                        <copy todir="${project.build.directory}/recipes">
+                                            <fileset
+                                                    dir="${project.basedir}/src/recipes/recipes-dist/target/recipes"/>
+                                        </copy>
+                                    </target>
+                                </configuration>
+                                <id>copy-recipes</id>
+                                <phase>package</phase>
+                                <goals>
+                                    <goal>run</goal>
+                                </goals>
+                            </execution>
+                        </executions>
+                    </plugin>
+                </plugins>
+            </build>
+        </profile>
+        <profile>
+            <id>contribs</id>
+            <build>
+                <plugins>
+                    <plugin>
+                        <groupId>org.apache.maven.plugins</groupId>
+                        <artifactId>maven-install-plugin</artifactId>
+                        <version>${maven-install-plugin-version}</version>
+                        <executions>
+                            <execution>
+                                <configuration>
+                                    <groupId>${project.groupId}</groupId>
+                                    <artifactId>${project.artifactId}</artifactId>
+                                    <version>${project.version}</version>
+                                    <packaging>jar</packaging>
+                                    <createChecksum>SHA-1</createChecksum>
+                                    <file>
+                                        ${project.build.directory}/${project.artifactId}-${project.version}-bin.jar
+                                    </file>
+                                    <pomFile>${project.basedir}/pom.xml</pomFile>
+                                </configuration>
+                                <phase>package</phase>
+                                <id>install-bin-jar</id>
+                                <goals>
+                                    <goal>install-file</goal>
+                                </goals>
+                            </execution>
+                            <execution>
+                                <configuration>
+                                    <groupId>${project.groupId}</groupId>
+                                    <artifactId>${project.artifactId}</artifactId>
+                                    <version>${project.version}</version>
+                                    <packaging>jar</packaging>
+                                    <createChecksum>SHA-1</createChecksum>
+                                    <file>
+                                        ${project.build.directory}/${project.artifactId}-${project.version}-tests.jar
+                                    </file>
+                                    <classifier>tests</classifier>
+                                </configuration>
+                                <id>install-test-jar</id>
+                                <phase>package</phase>
+                                <goals>
+                                    <goal>install-file</goal>
+                                </goals>
+                            </execution>
+                        </executions>
+                    </plugin>
+                    <plugin>
+                        <groupId>org.codehaus.mojo</groupId>
+                        <artifactId>exec-maven-plugin</artifactId>
+                        <version>${exec-maven-plugin-version}</version>
+                        <executions>
+                            <execution>
+                                <id>build-contrib</id>
+                                <phase>package</phase>
+                                <goals>
+                                    <goal>exec</goal>
+                                </goals>
+                                <configuration>
+                                    <executable>${maven.executable}</executable>
+                                    <workingDirectory>${project.basedir}/src/contrib
+                                    </workingDirectory>
+                                    <arguments>
+                                        <argument>clean</argument>
+                                        <argument>package</argument>
+                                        <argument>-DskipTests</argument>
+                                        <argument>-Pdist</argument>
+                                    </arguments>
+                                </configuration>
+                            </execution>
+                        </executions>
+                    </plugin>
+                    <plugin>
+                        <groupId>org.apache.maven.plugins</groupId>
+                        <artifactId>maven-antrun-plugin</artifactId>
+                        <version>${maven-antrun-plugin-version}</version>
+                        <executions>
+                            <execution>
+                                <configuration>
+                                    <target name="copy-contribs" description="Copy contrib">
+                                        <copy todir="${project.build.directory}/contrib">
+                                            <fileset
+                                                    dir="${project.basedir}/src/contrib/contrib-dist/target/contrib"/>
+                                        </copy>
+                                    </target>
+                                </configuration>
+                                <id>copy-contrib</id>
+                                <phase>package</phase>
+                                <goals>
+                                    <goal>run</goal>
+                                </goals>
+                            </execution>
+                        </executions>
+                    </plugin>
+                </plugins>
+            </build>
+        </profile>
+        <profile>
+            <id>src</id>
+            <build>
+                <plugins>
+                    <plugin>
+                        <groupId>org.apache.maven.plugins</groupId>
+                        <artifactId>maven-source-plugin</artifactId>
+                        <version>${maven-source-plugin-version}</version>
+                        <executions>
+                            <execution>
+                                <id>src-dist</id>
+                                <phase>prepare-package</phase>
+                                <goals>
+                                    <goal>jar</goal>
+                                </goals>
+                                <configuration>
+                                    <classifier>sources</classifier>
+                                    <excludes>
+                                        <exclude>**/*.class</exclude>
+                                    </excludes>
+                                    <archive>
+                                        <manifest>
+                                            <addDefaultSpecificationEntries>true
+                                            </addDefaultSpecificationEntries>
+                                            <addDefaultImplementationEntries>true
+                                            </addDefaultImplementationEntries>
+                                        </manifest>
+                                    </archive>
+                                </configuration>
+                            </execution>
+                        </executions>
+                    </plugin>
+                </plugins>
+            </build>
+        </profile>
+        <profile>
+            <id>javadoc</id>
+            <build>
+                <plugins>
+                    <plugin>
+                        <groupId>org.apache.maven.plugins</groupId>
+                        <artifactId>maven-javadoc-plugin</artifactId>
+                        <version>${maven-javadoc-plugin-version}</version>
+                        <executions>
+                            <execution>
+                                <!-- build javadoc jars per jar for publishing to maven -->
+                                <id>module-javadocs</id>
+                                <phase>prepare-package</phase>
+                                <goals>
+                                    <goal>jar</goal>
+                                </goals>
+                                <configuration>
+                                    <outputDirectory>${docs.dir}/api</outputDirectory>
+                                    <overview>${project.build.sourceDirectory}/overview.html
+                                    </overview>
+                                    <show>public</show>
+                                    <bottom>Copyright &amp;copy; ${current.year} The Apache Software
+                                        Foundation
+                                    </bottom>
+                                    <sourceFileIncludes>
+                                        <include>org/apache/**/*Main.java</include>
+                                        <include>org/apache/zookeeper/AsyncCallback.java</include>
+                                        <include>org/apache/zookeeper/CreateMode.java</include>
+                                        <include>org/apache/zookeeper/KeeperException.java</include>
+                                        <include>org/apache/zookeeper/ServerAdminClient.java
+                                        </include>
+                                        <include>org/apache/zookeeper/Watcher.java</include>
+                                        <include>org/apache/zookeeper/WatchedEvent.java</include>
+                                        <include>org/apache/zookeeper/ZooDefs.java</include>
+                                        <include>org/apache/zookeeper/ZooKeeper.java</include>
+                                        <include>org/apache/zookeeper/server/LogFormatter.java
+                                        </include>
+                                        <include>
+                                            org/apache/zookeeper/server/SnapshotFormatter.java
+                                        </include>
+                                        <include>org/apache/zookeeper/server/PurgeTxnLog.java
+                                        </include>
+                                        <include>org/apache/zookeeper/data/*.java</include>
+                                    </sourceFileIncludes>
+                                    <sourceFileExcludes>
+                                        <sourceFileExclude>
+                                            org/apache/zookeeper/server/quorum/QuorumPacket.java
+                                        </sourceFileExclude>
+                                    </sourceFileExcludes>
+                                    <sourcepath>
+                                        ${project.build.sourceDirectory};${generated.sourceDirectory}
+                                    </sourcepath>
+                                    <excludePackageNames>
+                                        org.apache.zookeeper.proto;org.apache.zookeeper.txn;org.apache.zookeeper.version
+                                    </excludePackageNames>
+                                </configuration>
+                            </execution>
+                        </executions>
+                    </plugin>
+                </plugins>
+            </build>
+        </profile>
+        <profile>
+            <id>api-report</id>
+            <build>
+                <plugins>
+                    <plugin>
+                        <groupId>org.apache.maven.plugins</groupId>
+                        <artifactId>maven-dependency-plugin</artifactId>
+                        <executions>
+                            <execution>
+                                <id>download-jdiff-lib</id>
+                                <goals>
+                                    <goal>copy</goal>
+                                </goals>
+                                <configuration>
+                                    <artifactItems>
+                                        <artifactItem>
+                                            <groupId>jdiff</groupId>
+                                            <artifactId>jdiff</artifactId>
+                                            <version>${jdiff-version}</version>
+                                            <overWrite>false</overWrite>
+                                            <outputDirectory>${jdiff.dir}/lib</outputDirectory>
+                                            <destFileName>jdiff.jar</destFileName>
+                                        </artifactItem>
+                                        <artifactItem>
+                                            <groupId>xerces</groupId>
+                                            <artifactId>xercesImpl</artifactId>
+                                            <version>${xercesImpl-version}</version>
+                                            <overWrite>false</overWrite>
+                                            <outputDirectory>${jdiff.dir}/lib</outputDirectory>
+                                            <destFileName>xerces.jar</destFileName>
+                                        </artifactItem>
+                                    </artifactItems>
+                                </configuration>
+                            </execution>
+                        </executions>
+                    </plugin>
+                    <plugin>
+                        <groupId>org.apache.maven.plugins</groupId>
+                        <artifactId>maven-antrun-plugin</artifactId>
+                        <executions>
+                            <execution>
+                                <id>generate-api-report</id>
+                                <phase>prepare-package</phase>
+                                <goals>
+                                    <goal>run</goal>
+                                </goals>
+                                <configuration>
+                                    <target name="api-report-generator">
+                                        <mkdir dir="${jdiff.dir}"/>
+                                        <mkdir dir="${jdiff.dir}/api-xml"/>
+                                        <javadoc>
+                                            <doclet name="jdiff.JDiff"
+                                                    path="${jdiff.dir}/lib/jdiff.jar:${jdiff.dir}/lib/xerces.jar">
+                                                <param name="-apidir" value="${jdiff.dir}/api-xml"/>
+                                                <param name="-apiname"
+                                                       value="${project.artifactId} ${project.version}"/>
+                                            </doclet>
+                                            <packageset dir="${project.build.sourceDirectory}">
+                                                <include name="org/apache/zookeeper"/>
+                                                <exclude name="org/apache/jute"/>
+                                            </packageset>
+                                            <classpath id="zk.class.path">
+                                                <pathelement
+                                                        location="${project.build.outputDirectory}"/>
+                                                <fileset dir="${project.build.directory}/lib">
+                                                    <include name="**/*.jar"/>
+                                                </fileset>
+                                            </classpath>
+                                        </javadoc>
+                                        <mkdir dir="${docs.dir}/jdiff"/>
+                                        <javadoc sourcepath="${project.build.sourceDirectory}"
+                                                 destdir="${docs.dir}/jdiff"
+                                                 excludepackagenames="org.apache.jute">
+                                            <doclet name="jdiff.JDiff"
+                                                    path="${jdiff.dir}/lib/jdiff.jar:${jdiff.dir}/lib/xerces.jar">
+                                                <param name="-oldapi"
+                                                       value="${project.artifactId} ${jdiff.stable}"/>
+                                                <param name="-newapi"
+                                                       value="${project.artifactId} ${project.version}"/>
+                                                <param name="-oldapidir"
+                                                       value="${project.basedir}/src/java/lib/jdiff"/>
+                                                <param name="-newapidir"
+                                                       value="${jdiff.dir}/api-xml"/>
+                                                <param name="-javadocold"
+                                                       value="${jdiff.stable.javadoc}"/>
+                                                <param name="-javadocnew" value="${docs.dir}/api/"/>
+                                                <param name="-stats"/>
+                                            </doclet>
+                                            <classpath>
+                                                <path refid="zk.class.path"/>
+                                            </classpath>
+                                        </javadoc>
+                                    </target>
+                                </configuration>
+                            </execution>
+                        </executions>
+                    </plugin>
+                </plugins>
+            </build>
+        </profile>
+        <profile>
+            <id>windows-properties</id>
+            <activation>
+                <os>
+                    <family>windows</family>
+                </os>
+            </activation>
+            <properties>
+                <maven.executable>mvn.cmd</maven.executable>
+                <forrest.executable>forrest.bat</forrest.executable>
+            </properties>
+        </profile>
+        <profile>
+            <id>docs</id>
+            <build>
+                <plugins>
+                    <plugin>
+                        <groupId>org.apache.maven.plugins</groupId>
+                        <artifactId>maven-antrun-plugin</artifactId>
+                        <version>${maven-antrun-plugin-version}</version>
+                        <executions>
+                            <execution>
+                                <configuration>
+                                    <target name="generate-docs"
+                                            description="Generate forrest-based documentation">
+                                        <exec dir="${docSourceDirectory}"
+                                              executable="${forrest.home}/bin/${forrest.executable}"
+                                              failonerror="true">
+                                        </exec>
+                                        <copy todir="${docs.dir}">
+                                            <fileset dir="${docSourceDirectory}/build/site/"/>
+                                        </copy>
+                                        <style basedir="${project.basedir}/conf"
+                                               destdir="${docs.dir}"
+                                               includes="zookeeper-default.xml"
+                                               style="conf/configuration.xsl"/>
+                                    </target>
+                                </configuration>
+                                <id>generate-docs</id>
+                                <phase>prepare-package</phase>
+                                <goals>
+                                    <goal>run</goal>
+                                </goals>
+                            </execution>
+                        </executions>
+                    </plugin>
+                </plugins>
+            </build>
+        </profile>
+        <profile>
+            <id>compile-native</id>
+            <build>
+                <plugins>
+                    <plugin>
+                        <groupId>org.apache.maven.plugins</groupId>
+                        <artifactId>maven-antrun-plugin</artifactId>
+                        <version>${maven-antrun-plugin-version}</version>
+                        <executions>
+                            <execution>
+                                <configuration>
+                                    <target name="compile-native" description="Make C binding">
+                                        <mkdir dir="${project.basedir}/src/c/generated"/>
+                                        <java classname="org.apache.jute.compiler.generated.Rcc"
+                                              fork="true"
+                                              dir="${project.basedir}/src/c/generated">
+                                            <arg value="-l"/>
+                                            <arg value="c"/>
+                                            <arg value="${project.basedir}/src/zookeeper.jute"/>
+                                            <classpath>
+                                                <pathelement
+                                                        path="${project.build.directory}/jute/classes"/>
+                                            </classpath>
+                                        </java>
+                                        <property name="c.src.dir"
+                                                  value="${project.basedir}/src/c"/>
+                                        <exec executable="autoreconf" dir="${c.src.dir}"
+                                              searchpath="yes"
+                                              failonerror="yes">
+                                            <arg value="-if"/>
+                                            <env key="ACLOCAL" value="aclocal -I ${cppunit.m4}"/>
+                                        </exec>
+                                        <mkdir dir="${project.build.directory}/c"/>
+                                        <exec executable="${c.src.dir}/configure"
+                                              dir="${project.build.directory}/c"
+                                              failonerror="yes">
+                                            <env key="base_dir" value="${project.basedir}"/>
+                                            <env key="CALLER" value="ANT"/>
+                                            <arg value="--prefix=${project.build.directory}/c/build/${package.prefix}"/>
+                                        </exec>
+                                        <property name="c.build"
+                                                  value="${project.build.directory}/c/build"/>
+                                        <exec dir="${project.build.directory}/c" executable="make"
+                                              failonerror="true">
+                                            <arg value="install"/>
+                                            <env key="LD_LIBRARY_PATH"
+                                                 value="${env.LD_LIBRARY_PATH};${c.build}"/>
+                                            <env key="PATH" path="${env.PATH};${c.src.dir};"/>
+                                            <env key="CALLER" value="ANT"/>
+                                            <env key="base_dir" value="${project.basedir}"/>
+                                        </exec>
+                                    </target>
+                                </configuration>
+                                <id>compile-c-binding</id>
+                                <phase>prepare-package</phase>
+                                <goals>
+                                    <goal>run</goal>
+                                </goals>
+                            </execution>
+                        </executions>
+                    </plugin>
+                </plugins>
+            </build>
+        </profile>
+        <profile>
+            <id>test-cppunit</id>
+            <build>
+                <plugins>
+                    <plugin>
+                        <groupId>org.apache.maven.plugins</groupId>
+                        <artifactId>maven-antrun-plugin</artifactId>
+                        <version>${maven-antrun-plugin-version}</version>
+                        <executions>
+                            <execution>
+                                <configuration>
+                                    <target name="test-cppunit"
+                                            description="Runs cppunit test cases">
+                                        <property name="c.src.dir"
+                                                  value="${project.basedir}/src/c"/>
+                                        <property name="test.cppunit.dir"
+                                                  value="${project.build.directory}/test-cppunit"/>
+                                        <mkdir dir="${test.cppunit.dir}"/>
+                                        <exec executable="${c.src.dir}/configure"
+                                              dir="${test.cppunit.dir}"
+                                              failonerror="yes">
+                                            <env key="base_dir" value="${project.basedir}"/>
+                                            <env key="CALLER" value="ANT"/>
+                                            <arg value="--prefix=${test.cppunit.dir}"/>
+                                        </exec>
+                                        <exec dir="${test.cppunit.dir}" executable="make"
+                                              failonerror="true">
+                                            <env key="LD_LIBRARY_PATH"
+                                                 value="${env.LD_LIBRARY_PATH};${cppunit.lib}"/>
+                                            <env key="PATH" path="${env.PATH};${c.src.dir};"/>
+                                            <env key="CALLER" value="ANT"/>
+                                            <!-- <env key="CLOVER_HOME" value="${clover.home}"/> -->
+                                            <env key="base_dir" value="${project.basedir}"/>
+                                            <arg line="clean check"/>
+                                        </exec>
+                                    </target>
+                                </configuration>
+                                <id>run-cppunit</id>
+                                <phase>prepare-package</phase>
+                                <goals>
+                                    <goal>run</goal>
+                                </goals>
+                            </execution>
+                        </executions>
+                    </plugin>
+                </plugins>
+            </build>
+        </profile>
+        <profile>
+            <id>dist</id>
+            <build>
+                <plugins>
+                    <plugin>
+                        <groupId>org.apache.maven.plugins</groupId>
+                        <artifactId>maven-dependency-plugin</artifactId>
+                        <version>${maven-dependency-plugin-version}</version>
+                        <executions>
+                            <execution>
+                                <configuration>
+                                    <outputDirectory>${project.build.directory}/lib
+                                    </outputDirectory>
+                                    <includeScope>runtime</includeScope>
+                                </configuration>
+                                <id>copy-libs</id>
+                                <phase>prepare-package</phase>
+                                <goals>
+                                    <goal>copy-dependencies</goal>
+                                </goals>
+                            </execution>
+                        </executions>
+                    </plugin>
+                    <plugin>
+                        <groupId>org.apache.maven.plugins</groupId>
+                        <artifactId>maven-antrun-plugin</artifactId>
+                        <version>${maven-antrun-plugin-version}</version>
+                        <executions>
+                            <execution>
+                                <configuration>
+                                    <target>
+                                        <property name="project.basedir"
+                                                  value="${project.basedir}"/>
+                                        <ant antfile="${project.basedir}/dev-support/build/build.xml"
+                                             target="package"/>
+                                    </target>
+                                </configuration>
+                                <id>prepare-dist</id>
+                                <phase>package</phase>
+                                <goals>
+                                    <goal>run</goal>
+                                </goals>
+                            </execution>
+                        </executions>
+                    </plugin>
+                </plugins>
+            </build>
+        </profile>
+        <profile>
+            <id>bin-dist</id>
+            <build>
+                <plugins>
+                    <plugin>
+                        <groupId>org.apache.maven.plugins</groupId>
+                        <artifactId>maven-dependency-plugin</artifactId>
+                        <version>${maven-dependency-plugin-version}</version>
+                        <executions>
+                            <execution>
+                                <configuration>
+                                    <outputDirectory>${project.build.directory}/lib
+                                    </outputDirectory>
+                                    <includeScope>runtime</includeScope>
+                                </configuration>
+                                <id>copy-libs-for-bin-package</id>
+                                <phase>prepare-package</phase>
+                                <goals>
+                                    <goal>copy-dependencies</goal>
+                                </goals>
+                            </execution>
+                        </executions>
+                    </plugin>
+                    <plugin>
+                        <groupId>org.apache.maven.plugins</groupId>
+                        <artifactId>maven-antrun-plugin</artifactId>
+                        <version>${maven-antrun-plugin-version}</version>
+                        <executions>
+                            <execution>
+                                <configuration>
+                                    <target>
+                                        <property name="project.basedir"
+                                                  value="${project.basedir}"/>
+                                        <ant antfile="${project.basedir}/dev-support/build/build.xml"
+                                             target="bin-package"/>
+                                    </target>
+                                </configuration>
+                                <id>prepare-dist</id>
+                                <phase>package</phase>
+                                <goals>
+                                    <goal>run</goal>
+                                </goals>
+                            </execution>
+                        </executions>
+                    </plugin>
+                </plugins>
+            </build>
+        </profile>
+        <profile>
+            <id>package-native</id>
+            <build>
+                <plugins>
+                    <plugin>
+                        <groupId>org.apache.maven.plugins</groupId>
+                        <artifactId>maven-antrun-plugin</artifactId>
+                        <version>${maven-antrun-plugin-version}</version>
+                        <executions>
+                            <execution>
+                                <configuration>
+                                    <target>
+                                        <property name="final.name"
+                                                  value="zookeeper-${project.version}"/>
+                                        <exec executable="tar"
+                                              dir="${project.build.directory}/c/build">
+                                            <arg value="cfzv"/>
+                                            <arg value="${project.build.directory}/${final.name}-lib.tar.gz"/>
+                                            <arg value="."/>
+                                        </exec>
+                                    </target>
+                                </configuration>
+                                <id>tar-c-binding</id>
+                                <phase>package</phase>
+                                <goals>
+                                    <goal>run</goal>
+                                </goals>
+                            </execution>
+                        </executions>
+                    </plugin>
+                </plugins>
+            </build>
+        </profile>
+        <profile>
+            <id>tar</id>
+            <build>
+                <plugins>
+                    <plugin>
+                        <groupId>org.apache.maven.plugins</groupId>
+                        <artifactId>maven-assembly-plugin</artifactId>
+                        <configuration>
+                            <descriptor>
+                                ${project.basedir}/dev-support/build/zookeeper-assembly.xml
+                            </descriptor>
+                            <finalName>zookeeper-${project.version}</finalName>
+                            <appendAssemblyId>false</appendAssemblyId>
+                            <attach>false</attach>
+                        </configuration>
+                        <executions>
+                            <execution>
+                                <phase>package</phase>
+                                <goals>
+                                    <goal>single</goal>
+                                </goals>
+                            </execution>
+                        </executions>
+                    </plugin>
+                </plugins>
+            </build>
+        </profile>
+    </profiles>
+</project>
