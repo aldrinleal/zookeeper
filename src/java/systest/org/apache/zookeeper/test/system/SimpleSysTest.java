@@ -30,7 +30,7 @@ import org.apache.zookeeper.Watcher.Event.KeeperState;
 import org.apache.zookeeper.ZooDefs.Ids;
 import org.apache.zookeeper.ZooKeeper.States;
 import org.apache.zookeeper.data.Stat;
-import org.junit.Test;
+import org.junit.*;
 
 /**
  * This does a basic system test. It starts up an ensemble of servers and a set of clients.
@@ -39,6 +39,7 @@ import org.junit.Test;
  * watches them disappear.
  *
  */
+@Ignore
 public class SimpleSysTest extends BaseSysTest implements Watcher {
     int maxTries = 10;
     boolean connected;
