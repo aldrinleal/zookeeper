@@ -21,3 +21,4 @@ src/c/install-sh
 src/c/ltmain.sh
 src/c/missing
 target
+dev-export/build/
