@@ -17,7 +17,7 @@
     <modelVersion>4.0.0</modelVersion>
     <groupId>org.apache.zookeeper</groupId>
     <artifactId>zookeeper</artifactId>
-    <version>3.5.2-maven-SNAPSHOT</version>
+    <version>3.4.8-maven-SNAPSHOT</version>
     <packaging>jar</packaging>
     <name>ZooKeeper</name>
     <description>Distributed coordination.</description>
