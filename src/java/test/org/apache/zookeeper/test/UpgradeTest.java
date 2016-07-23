@@ -43,6 +43,7 @@ import org.apache.zookeeper.server.upgrade.UpgradeMain;
 import org.junit.Assert;
 import org.junit.Test;
 
+@org.junit.Ignore
 public class UpgradeTest extends ZKTestCase implements Watcher {
     private final static Logger LOG = LoggerFactory.getLogger(UpgradeTest.class);
 

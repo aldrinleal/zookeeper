@@ -38,6 +38,7 @@ import org.junit.Test;
 /**
  * Verify ZOOKEEPER-1277 - ensure that we handle epoch rollover correctly.
  */
+@org.junit.Ignore
 public class ZxidRolloverTest extends TestCase {
     private static final Logger LOG = Logger.getLogger(ZxidRolloverTest.class);
 
