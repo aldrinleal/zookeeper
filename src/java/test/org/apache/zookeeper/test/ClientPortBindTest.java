@@ -41,6 +41,7 @@ import org.apache.zookeeper.server.ZooKeeperServer;
 import org.junit.Assert;
 import org.junit.Test;
 
+@org.junit.Ignore
 public class ClientPortBindTest extends ZKTestCase implements Watcher {
     protected static final Logger LOG = 
         LoggerFactory.getLogger(ClientPortBindTest.class);
